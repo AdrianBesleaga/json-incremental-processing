@@ -1,0 +1,7 @@
+The app is built with Maven.  To build, run:
+
+  mvn clean package
+
+This produces an executable jar in the target folder.  To run, use:
+
+  java -jar target/playlist.jar {contentId} {countryCode}
