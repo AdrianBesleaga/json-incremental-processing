@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class JsonFileReaderTest {
     ObjectMapper objectMapper = new ObjectMapper();
-    JsonFileReader jsonFileReader = new JsonFileReader();
+    IJsonFileReader jsonFileReader = new JsonFileReader();
     ClassLoader classLoader = JsonFileReaderTest.class.getClassLoader();
     File file = new File(classLoader.getResource("client/client-sample-data.json").getFile());
 

@@ -7,7 +7,6 @@ public class ContentsPrerolls {
     private List<Content> content = new ArrayList<>();
     private List<Preroll> preroll = new ArrayList<>();
 
-
     public List<Preroll> getPreroll() {
         return preroll;
     }

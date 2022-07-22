@@ -5,4 +5,18 @@
    3. 'Incremental Processing', or 'Token Streams'
    4. https://cassiomolin.com/2019/08/19/combining-jackson-streaming-api-with-objectmapper-for-parsing-json/
    5. Test incremental ingestion data with expected json (file)
-3. 
+3. Getting the playlists
+   1. I assume that if the preroll array is empty, we can return the content videos matching the country
+   2. Collect all matching playlists
+   3. Create a Map (InMemoryDB) where the key is <contentId>_<country> for fast access to playlists
+4. Production code
+   1. Clean code/design (Interfaces, SOLID, DI)
+   2. Tested
+   3. Green tests
+   4. Code Reviews
+5. Improvements
+   1. Adding more validations to avoid NPE
+   2. Validate mandatory inputs
+   3. Break code into smaller functions
+   4. More documentation
+   5. More unit tests + integration tests
