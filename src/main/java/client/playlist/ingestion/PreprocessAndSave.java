@@ -94,10 +94,17 @@ public class PreprocessAndSave {
                     List<String> countries = attributes.getCountries();
                     String aspect = attributes.getAspect();
                     String language = attributes.getLanguage();
-                    return videoAspect.equals(aspect)
+                    return aspectIsEqual(aspect, videoAspect)
                             && videoLanguage.equals(language)
                             && countries.stream().anyMatch(videoCountries::contains);
                 })
                 .collect(Collectors.toSet());
+    }
+
+    private boolean aspectIsEqual(String aspect, String videoAspect) {
+        if (aspect == null || videoAspect == null) {
+            return true;
+        }
+        return videoAspect.equals(aspect);
     }
 }

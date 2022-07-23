@@ -17,7 +17,7 @@ public class PlaylistTest {
     @Rule
     public ExpectedException thrown = ExpectedException.none();
 
-    String inputFile = "client/client-sample-data.json";
+    String inputFile = "client/netflix/client-test-data.json";
 
     @Test
     public void should_throw_exception_if_not_found() throws NoValidContentFoundException {
