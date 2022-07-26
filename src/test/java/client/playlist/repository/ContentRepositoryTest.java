@@ -6,9 +6,9 @@ import client.playlist.model.OutputPlaylist;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 public class ContentRepositoryTest {
     String inputFile = "client/client-sample-data.json";
@@ -18,10 +18,10 @@ public class ContentRepositoryTest {
         String contentId = "MI3";
         String countryCode = "UK";
         IContentRepository contentRepository = new PreprocessAndSave(inputFile).extractAndSaveData();
-        Set<OutputPlaylist> playlists = contentRepository.getOutputPlaylists(contentId, countryCode);
-        Set<OutputPlaylist> expectedOutput = new HashSet<>();
-        expectedOutput.add(new OutputPlaylist("Playlist1", new HashSet<>(Arrays.asList("V6", "V2"))));
-        expectedOutput.add(new OutputPlaylist("Playlist2", new HashSet<>(Arrays.asList("V7", "V3"))));
+        List<OutputPlaylist> playlists = contentRepository.getOutputPlaylists(contentId, countryCode);
+        List<OutputPlaylist> expectedOutput = new ArrayList<>();
+        expectedOutput.add(new OutputPlaylist("Playlist1", new ArrayList<>(Arrays.asList("V6", "V2"))));
+        expectedOutput.add(new OutputPlaylist("Playlist2", new ArrayList<>(Arrays.asList("V7", "V3"))));
         Assert.assertEquals(playlists, expectedOutput);
     }
 }

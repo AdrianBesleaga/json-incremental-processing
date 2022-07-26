@@ -4,6 +4,7 @@ import client.playlist.ingestion.PreprocessAndSave;
 import client.playlist.model.OutputPlaylist;
 import client.playlist.repository.IContentRepository;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -13,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
         String inputFile = "client/client-sample-data.json";
         String contentId = "MI3";
-        String countryCode = "UK";
+        String countryCode = "US";
 
         if (args.length == 2) {
             contentId = args[0];
@@ -22,7 +23,7 @@ public class Main {
 
         try {
             IContentRepository contentRepository = new PreprocessAndSave(inputFile).extractAndSaveData();
-            Set<OutputPlaylist> playlists = contentRepository.getOutputPlaylists(contentId, countryCode);
+            List<OutputPlaylist> playlists = contentRepository.getOutputPlaylists(contentId, countryCode);
 
             for (OutputPlaylist playlist : playlists) {
                 System.out.println(playlist.getName());

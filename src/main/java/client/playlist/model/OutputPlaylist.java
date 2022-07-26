@@ -1,13 +1,13 @@
 package client.playlist.model;
 
+import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 public class OutputPlaylist {
     private final String name;
-    private final Set<String> videos;
+    private final List<String> videos;
 
-    public OutputPlaylist(String name, Set<String> videos) {
+    public OutputPlaylist(String name, List<String> videos) {
         this.name = name;
         this.videos = videos;
     }
@@ -16,7 +16,7 @@ public class OutputPlaylist {
         return name;
     }
 
-    public Set<String> getVideos() {
+    public List<String> getVideos() {
         return videos;
     }
 

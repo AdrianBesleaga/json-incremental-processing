@@ -9,9 +9,9 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 public class PlaylistTest {
     @Rule
@@ -30,21 +30,21 @@ public class PlaylistTest {
     }
 
     @Test
-    public void should_match_output_for_MI3_UK() throws NoValidContentFoundException {
+    public void should_match_output_for_MI3_US() throws NoValidContentFoundException {
         String contentId = "MI3";
-        String countryCode = "UK";
+        String countryCode = "US";
         IContentRepository contentRepository = new PreprocessAndSave(inputFile).extractAndSaveData();
-        Set<OutputPlaylist> playlists = contentRepository.getOutputPlaylists(contentId, countryCode);
-        Set<OutputPlaylist> expectedOutput = new HashSet<>();
-        expectedOutput.add(new OutputPlaylist("Playlist1", new HashSet<>(Arrays.asList("V6", "V2"))));
-        expectedOutput.add(new OutputPlaylist("Playlist2", new HashSet<>(Arrays.asList("V7", "V3"))));
+        List<OutputPlaylist> playlists = contentRepository.getOutputPlaylists(contentId, countryCode);
+        List<OutputPlaylist> expectedOutput = new ArrayList<>();
+        expectedOutput.add(new OutputPlaylist("Playlist1", new ArrayList<>(Arrays.asList("V4", "V1"))));
+        expectedOutput.add(new OutputPlaylist("Playlist2", new ArrayList<>(Arrays.asList("V6", "V3"))));
         Assert.assertEquals(expectedOutput, playlists);
     }
 
     @Test
-    public void should_match_output_for_MI3_US() throws NoValidContentFoundException {
+    public void should_match_output_for_MI3_UK() throws NoValidContentFoundException {
         String contentId = "MI3";
-        String countryCode = "US";
+        String countryCode = "UK";
         thrown.expect(NoValidContentFoundException.class);
         thrown.expectMessage("No valid playlist found for contentId: " + contentId + " and countryCode: " + countryCode);
         IContentRepository contentRepository = new PreprocessAndSave(inputFile).extractAndSaveData();
@@ -56,9 +56,9 @@ public class PlaylistTest {
         String contentId = "MI3";
         String countryCode = "CA";
         IContentRepository contentRepository = new PreprocessAndSave(inputFile).extractAndSaveData();
-        Set<OutputPlaylist> playlists = contentRepository.getOutputPlaylists(contentId, countryCode);
-        Set<OutputPlaylist> expectedOutput = new HashSet<>();
-        expectedOutput.add(new OutputPlaylist("Playlist1", new HashSet<>(Arrays.asList("V5", "V1"))));
+        List<OutputPlaylist> playlists = contentRepository.getOutputPlaylists(contentId, countryCode);
+        List<OutputPlaylist> expectedOutput = new ArrayList<>();
+        expectedOutput.add(new OutputPlaylist("Playlist1", new ArrayList<>(Arrays.asList("V5", "V2"))));
         Assert.assertEquals(expectedOutput, playlists);
     }
 }
